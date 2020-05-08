@@ -3,14 +3,15 @@ import QtQuick.Controls 2.0
 
 Rectangle
 {
-  width: 600
-  height: 350
+  width: 1000
+  height: 600
   color: "blue"
 
   Button
   {
     id: button1
-    text: "OOOOO"
+    text: "Quick Red Fox"
+    font.family: "Roboto"
     anchors.centerIn: parent
 
     onClicked: { calc.add(1) }
