@@ -1,6 +1,5 @@
-import QtQuick 2.0
-import QtQuick.Controls 2.0
-import QtQuick.Window 2.2
+import QtQuick 2.12
+import QtQuick.Controls 2.12
 
 Rectangle
 {
@@ -17,9 +16,24 @@ Rectangle
     onClicked: { calc.add(1) }
 
     contentItem: Label {
-        id: label1
-        text: button1.text
-        font.family: "Androido"
+      id: label1
+      text: button1.text
+      font.family: "Androido"
+    }
+  }
+
+  DelayButton
+  {
+    id: delayButton
+    text: "DelayButton"
+    anchors.top: button1.bottom
+    anchors.topMargin: 5
+    anchors.horizontalCenter: parent.horizontalCenter
+
+    delay: 3000
+
+    onActivated: {
+      console.log("Delay button activated")
     }
   }
 
