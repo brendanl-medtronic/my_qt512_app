@@ -12,13 +12,20 @@ Rectangle
     id: button1
     text: "Quick Red Fox"
     anchors.centerIn: parent
+    width: label1.contentWidth * 1.2
 
     onClicked: { calc.add(1) }
 
-    contentItem: Label {
-      id: label1
-      text: button1.text
-      font.family: "Androido"
+    contentItem: Rectangle {
+      id: rect1
+      color: "red"
+      Label {
+        id: label1
+        text: button1.text
+        font.family: "Androido"
+        color: "white"
+        anchors.centerIn: rect1
+      }
     }
   }
 
@@ -30,7 +37,7 @@ Rectangle
     anchors.topMargin: 5
     anchors.horizontalCenter: parent.horizontalCenter
 
-    delay: 3000
+    delay: 5000
 
     onActivated: {
       console.log("Delay button activated")
