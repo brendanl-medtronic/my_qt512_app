@@ -12,10 +12,15 @@ Rectangle
   {
     id: button1
     text: "Quick Red Fox"
-    font.family: "Roboto"
     anchors.centerIn: parent
 
     onClicked: { calc.add(1) }
+
+    contentItem: Label {
+        id: label1
+        text: button1.text
+        font.family: "Androido"
+    }
   }
 
   Connections
@@ -33,6 +38,10 @@ Rectangle
         console.log("screen " + i + " \"" + screens[i].name + "\" has geometry " +
                      screens[i].virtualX + ", " + screens[i].virtualY + " " +
                      screens[i].width + "x" + screens[i].height)
+
+    var font_family = label1.font.family
+    var fi_family = label1.fontInfo.family
+    console.log("button1 requested font family " + font_family + "; actual " + fi_family)
   }
 
 }
