@@ -44,6 +44,31 @@ Rectangle
     }
   }
 
+  Label
+  {
+    id: label_kernon
+    font.family: "Roboto"
+    font.pointSize: 36
+    font.weight: Font.Bold
+    text: "OpenType kerning ON"
+    color: "white"
+    anchors.top: delayButton.bottom
+    anchors.horizontalCenter: parent.horizontalCenter
+  }
+
+  Label
+  {
+    id: label_kernoff
+    font.family: "Roboto"
+    font.kerning: false
+    font.pointSize: 36
+    font.weight: Font.Bold
+    text: "OpenType kerning OFF"
+    color: "white"
+    anchors.top: label_kernon.bottom
+    anchors.left: label_kernon.left
+  }
+
   Connections
   {
     target: calc
