@@ -118,5 +118,10 @@ Rectangle
     console.log("button1 requested font family " + font_family + "; actual " + fi_family)
   }
 
+  function increment(value, by = 1)
+  {
+    return value += by;
+  }
+
 }
 
