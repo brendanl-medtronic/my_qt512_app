@@ -1,4 +1,5 @@
 import QtQuick 2.12
+import QtQuick.Window 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Shapes 1.12
 
@@ -7,6 +8,16 @@ Rectangle
   width: 1000
   height: 600
   color: "blue"
+
+  TapHandler // One of the new Input Handlers (in labs 5.10 as "Pointer Handlers", official in 5.12)
+  {
+      onTapped: console.log("left clicked")
+  }
+  TapHandler
+  {
+      acceptedButtons: Qt.RightButton
+      onTapped: console.log("right clicked")
+  }
 
   Shape
   {
@@ -108,10 +119,12 @@ Rectangle
 
   Component.onCompleted: {
     var screens = Qt.application.screens;
-      for (var i = 0; i < screens.length; ++i)
-        console.log("screen " + i + " \"" + screens[i].name + "\" has geometry " +
-                     screens[i].virtualX + ", " + screens[i].virtualY + " " +
-                     screens[i].width + "x" + screens[i].height)
+    for (var i = 0; i < screens.length; ++i)
+      console.log("screen " + i + " \"" + screens[i].name + "\" has geometry " +
+                   screens[i].virtualX + ", " + screens[i].virtualY + " " +
+                   screens[i].width + "x" + screens[i].height)
+
+    console.log("")
 
     var font_family = label1.font.family
     var fi_family = label1.fontInfo.family
