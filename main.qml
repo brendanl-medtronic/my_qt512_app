@@ -19,7 +19,7 @@ Rectangle
       onTapped: console.log("right clicked")
   }
 
-  Shape
+  Shape // New in 5.10
   {
     id: shapeSet
     anchors.horizontalCenter: parent.horizontalCenter
@@ -45,9 +45,35 @@ Rectangle
     }
   }
 
+  DelayButton
+  {
+    id: delayButton
+    text: "DelayButton"
+    anchors.top: button1.bottom
+    anchors.topMargin: 5
+    anchors.horizontalCenter: parent.horizontalCenter
+
+    delay: 5000
+
+    onActivated: {
+      console.log("Delay button activated")
+
+      if(label_kernon.visible == false)
+      {
+        label_kernon.visible = true
+        label_kernoff.visible = true
+      }
+      else
+      {
+        button1.visible = true
+      }
+    }
+  }
+
   Button
   {
     id: button1
+    visible: false
     text: qsTr("quick red fox")
     anchors.centerIn: parent
     width: label1.contentWidth * 1.2
@@ -67,24 +93,10 @@ Rectangle
     }
   }
 
-  DelayButton
-  {
-    id: delayButton
-    text: "DelayButton"
-    anchors.top: button1.bottom
-    anchors.topMargin: 5
-    anchors.horizontalCenter: parent.horizontalCenter
-
-    delay: 5000
-
-    onActivated: {
-      console.log("Delay button activated")
-    }
-  }
-
   Label
   {
     id: label_kernon
+    visible: false
     font.family: "Roboto"
     font.pointSize: 36
     font.weight: Font.Bold
@@ -98,6 +110,7 @@ Rectangle
   Label
   {
     id: label_kernoff
+    visible: false
     font.family: "Roboto"
     font.kerning: false
     font.pointSize: 36
