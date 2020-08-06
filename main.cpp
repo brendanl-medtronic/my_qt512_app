@@ -2,6 +2,8 @@
 #include <QQmlContext>
 #include <QQuickView>
 
+#include <QDateTime>
+#include <QFileInfo>
 #include <QOperatingSystemVersion>
 #include <QTranslator>
 
@@ -24,6 +26,17 @@ int main(int argc, char** argv)
   QString os_name = current_os.name();
 
   qDebug() << QObject::tr("Current OS: ") << os_name;
+  qDebug() << "";
+
+  QFileInfo my_info("./my_qt512_app");
+
+  QDateTime birth_time = my_info.birthTime();
+  QDateTime metadata_change_time = my_info.metadataChangeTime();
+
+  qDebug() << "./my_qt512_app: birth time: " << (birth_time.isValid() ? birth_time.toString() : QString("<invalid>"));
+  qDebug() << "      metadata change time: " << metadata_change_time;
+
+  qDebug() << "";
 
   QQuickView view;
 
